@@ -1,0 +1,28 @@
+/* Don't change the existing CSS. */
+
+/* Existing */
+.box {
+  background-color: blue;
+  padding: 10px;
+}
+
+/* Existing */
+p {
+  color: yellow;
+  margin: 0;
+  padding: 0;
+}
+
+#outer-box {
+  background-color: purple;
+  /* padding: 10px; */ /* Unnecessary: already applied by .box */
+}
+
+.white-text {
+  color: white;
+}
+
+.inner-box {
+  background-color: red;
+  /* padding: 10px; */ /* Unnecessary: already applied by .box */
+}
