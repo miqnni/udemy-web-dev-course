@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mondrian Project</title>
+        <style>
+            /*
+            Write your CSS here
+            Gap Colour: #000
+            White: #F0F1EC
+            Red: #E72F24
+            Black: #232629
+            Blue: #004592
+            Yellow: #F9D01E
+
+            For dimensions, see dimensions.png image.
+            HINT: Remember you can't change the properties of grid lines.
+            But grid lines are transparent!
+            */
+            :root {
+                /* Colours */
+                --gap-colour: #000000;
+                --white: #f0f1ec;
+                --red: #e72f24;
+                --black: #232629;
+                --blue: #004592;
+                --yellow: #f9d01e;
+
+                /* Sizing */
+                --total-width: 748px;
+                --total-height: 748px;
+                --gap: 9px;
+                --red-height: 414px;
+                --red-width: 320px;
+                --yellow-and-black-height: 20px;
+                --yellow-width: 198px;
+                --black-width: 153px;
+                --middle-white-height-under-blue-gap: 155px;
+                --blue-height: 130px;
+                --extra-border-bottom-size: 10px;
+            }
+
+            body {
+                background-color: #ffffff;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .container {
+                flex-basis: var(--total-width);
+                height: var(--total-height);
+                flex-shrink: 0;
+
+                /* Grid settings */
+                display: grid;
+                grid-template-columns:
+                    var(--red-width) var(--gap) calc(
+                        var(--yellow-width) + var(--black-width)
+                    )
+                    1fr;
+                grid-template-rows: var(--red-height) var(--gap) 1fr var(--gap) var(
+                        --yellow-and-black-height
+                    );
+            }
+
+            .red {
+                background-color: var(--red);
+            }
+
+            .white {
+                background-color: var(--white);
+            }
+
+            .blue {
+                background-color: var(--blue);
+            }
+
+            .yellow {
+                background-color: var(--yellow);
+            }
+
+            .black {
+                background-color: var(--black);
+            }
+
+            .gap {
+                background-color: var(--gap-colour);
+            }
+
+            .extra-border-bottom {
+                border-bottom: var(--extra-border-bottom-size) solid
+                    var(--gap-colour);
+            }
+
+            /* Row-1-specific settings */
+            #top-right {
+                grid-column: span 2;
+            }
+
+            /* Row-2-specific settings */
+            #horizontal-gap-2-3 {
+                grid-column: span 2;
+            }
+
+            /* Row-3-specific settings,
+            including the inner container */
+            .bottom-right-container {
+                grid-row: span 3;
+
+                display: grid;
+                grid-template-columns: var(--gap) 1fr;
+                grid-template-rows: var(--blue-height) var(--gap) 1fr;
+            }
+
+            #vertical-gap-inner {
+                grid-row: span 3;
+            }
+
+            /*
+            Row-5-specific settings,
+            including the yellow-black container
+            */
+            .yellow-black-container {
+                display: grid;
+                grid-template: 1fr / var(--yellow-width) var(--black-width);
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Write your HTML here -->
+        <div class="container">
+            <!-- Row 1 (red, vertical gap, white: column span 2) -->
+            <div class="red"></div>
+            <div class="vertical gap" id="vertical-gap-1-1"></div>
+            <div class="white" id="top-right"></div>
+
+            <!-- Row 2 (gaps only) -->
+            <div class="horizontal gap" id="horizontal-gap-2-1"></div>
+            <div class="vertical gap" id="vertical-gap-2-2"></div>
+            <div class="horizontal gap" id="horizontal-gap-2-3"></div>
+
+            <!-- Row 3 (
+                white,
+                vertical gap,
+                white,
+                bottom right container: row span 3
+            ) -->
+            <div class="white" id="middle-left"></div>
+            <div class="vertical gap" id="vertical-gap-3-1"></div>
+            <div class="white" id="middle"></div>
+            <div class="bottom-right-container">
+                <!-- Inner row 1 (
+                    vertical gap: row span 3,
+                    blue
+                )-->
+                <div class="vertical gap" id="vertical-gap-inner"></div>
+                <div class="blue extra-border-bottom"></div>
+
+                <!-- Inner row 2 (horizontal gap) -->
+                <div class="horizontal gap"></div>
+
+                <!-- Inner row 3 (white) -->
+                <div class="white" id="bottom-right"></div>
+            </div>
+
+            <!-- Row 4 (gaps only) -->
+            <div class="horizontal gap" id="horizontal-gap-4-1"></div>
+            <div class="vertical gap" id="vertical-gap-4-2"></div>
+            <div class="horizontal gap" id="horizontal-gap-4-3"></div>
+
+            <!-- Row 5 (white, vertical gap, yellow-black container) -->
+            <div class="white" id="bottom-left"></div>
+            <div class="horizontal gap" id="horizontal-gap-5-1"></div>
+            <div class="yellow-black-container">
+                <!-- The only row -->
+                <div class="yellow"></div>
+                <div class="black"></div>
+            </div>
+        </div>
+    </body>
+</html>
