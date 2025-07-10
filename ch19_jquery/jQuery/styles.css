@@ -1,0 +1,12 @@
+body {
+    background-color: aquamarine;
+}
+
+.sample-class {
+    color: darkred;
+    font-size: 5rem;
+}
+
+.indent {
+    padding-left: 10rem;
+}
