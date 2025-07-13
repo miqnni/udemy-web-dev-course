@@ -1,0 +1,13 @@
+.heading {
+  color: red;
+}
+
+ul {
+  color: darkslateblue;
+}
+
+.gallery img {
+  /* display: block; */
+  width: 100px;
+  height: 100px;
+}
